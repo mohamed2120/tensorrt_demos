@@ -4,86 +4,8 @@ NOTE: Number of YOLO COCO output classes differs from SSD COCO models.
 """
 
 COCO_CLASSES_LIST = [
-    'person',
-    'bicycle',
-    'car',
-    'motorbike',
-    'aeroplane',
-    'bus',
-    'train',
-    'truck',
-    'boat',
-    'traffic light',
-    'fire hydrant',
-    'stop sign',
-    'parking meter',
-    'bench',
-    'bird',
-    'cat',
-    'dog',
-    'horse',
-    'sheep',
-    'cow',
-    'elephant',
-    'bear',
-    'zebra',
-    'giraffe',
-    'backpack',
-    'umbrella',
-    'handbag',
-    'tie',
-    'suitcase',
-    'frisbee',
-    'skis',
-    'snowboard',
-    'sports ball',
-    'kite',
-    'baseball bat',
-    'baseball glove',
-    'skateboard',
-    'surfboard',
-    'tennis racket',
-    'bottle',
-    'wine glass',
-    'cup',
-    'fork',
-    'knife',
-    'spoon',
-    'bowl',
-    'banana',
-    'apple',
-    'sandwich',
-    'orange',
-    'broccoli',
-    'carrot',
-    'hot dog',
-    'pizza',
-    'donut',
-    'cake',
-    'chair',
-    'sofa',
-    'pottedplant',
-    'bed',
-    'diningtable',
-    'toilet',
-    'tvmonitor',
-    'laptop',
-    'mouse',
-    'remote',
-    'keyboard',
-    'cell phone',
-    'microwave',
-    'oven',
-    'toaster',
-    'sink',
-    'refrigerator',
-    'book',
-    'clock',
-    'vase',
-    'scissors',
-    'teddy bear',
-    'hair drier',
-    'toothbrush',
+    'With_Cap',
+    'Without_Cap'
 ]
 
 # For translating YOLO class ids (0~79) to SSD class ids (0~90)
@@ -95,10 +17,11 @@ yolo_cls_to_ssd = [
     80, 81, 82, 84, 85, 86, 87, 88, 89, 90,
 ]
 
+CUSTOM_CLASSES_LIST = ['cap','no_cap']
 
 def get_cls_dict(category_num):
     """Get the class ID to name translation dictionary."""
-    if category_num == 80:
+    if category_num == 2:
         return {i: n for i, n in enumerate(COCO_CLASSES_LIST)}
     else:
-        return {i: 'CLS%d' % i for i in range(category_num)}
+        return {i: n for i, n in enumerate(CUSTOM_CLASSES_LIST)}

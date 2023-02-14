@@ -119,6 +119,7 @@ def open_cam_onboard(width, height):
                    'video/x-raw, width=(int){}, height=(int){}, '
                    'format=(string)BGRx ! '
                    'videoconvert ! appsink').format(width, height)
+        
     else:
         raise RuntimeError('onboard camera source not found!')
     return cv2.VideoCapture(gst_str, cv2.CAP_GSTREAMER)
@@ -195,6 +196,7 @@ class Camera():
             self.cap = open_cam_gstr(a.gstr, a.width, a.height)
             self._start()
         elif a.onboard is not None:
+            print("Camera: using Jetson onboard camera")
             logging.info('Camera: using Jetson onboard camera')
             self.cap = open_cam_onboard(a.width, a.height)
             self._start()

@@ -24,13 +24,19 @@ def show_help_text(img, help_text):
     return img
 
 
-def show_fps(img, fps):
+def show_fps(img, fps,totalCount,totalCaps,totalNoCaps):
     """Draw fps number at top-left corner of the image."""
     font = cv2.FONT_HERSHEY_PLAIN
     line = cv2.LINE_AA
     fps_text = 'FPS: {:.2f}'.format(fps)
     cv2.putText(img, fps_text, (11, 20), font, 1.0, (32, 32, 32), 4, line)
     cv2.putText(img, fps_text, (10, 20), font, 1.0, (240, 240, 240), 1, line)
+    count_text='Count: {}'.format(totalCount)
+    cv2.putText(img, count_text, (100, 20), font, 1.0, (240, 240, 240), 1, line)
+    cap_count_text='Cap: {}'.format(totalCaps)
+    cv2.putText(img, cap_count_text, (200, 20), font, 1.0, (240, 240, 240), 1, line)
+    no_cap_count_text='no_Cap: {}'.format(totalNoCaps)
+    cv2.putText(img, no_cap_count_text, (300, 20), font, 1.0, (240, 240, 240), 1, line)
     return img
 
 
